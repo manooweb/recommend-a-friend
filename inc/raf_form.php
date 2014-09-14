@@ -169,7 +169,16 @@ function oks( $oks ) {
 		<meta name="robots" content="nofollow" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script src="<?php echo RAF_URL; ?>js/raf_form.js"></script>
-		<link rel='stylesheet' href='<?php echo RAF_URL; ?>css/style.css' type='text/css' media='all' />
+        <?php
+        $cssDirectoryURL = RAF_URL."css";
+        if ( file_exists( get_stylesheet_directory()."/raf-styles.css" ) ) {
+			 $cssDirectoryURL = get_stylesheet_directory_uri();
+		}
+		elseif ( file_exists( get_template_directory()."/raf-styles.css" ) ) {
+			$cssDirectoryURL = get_template_directory_uri();
+        }
+        ?>
+		<link rel='stylesheet' href='<?php echo $cssDirectoryURL; ?>/raf-styles.css' type='text/css' media='all' />
 		<style type="text/css" media="all">
 
 			#raf_global {
