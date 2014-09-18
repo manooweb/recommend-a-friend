@@ -23,22 +23,23 @@ class RAF_Client {
 	 * @author Benjamin Niess
 	 */
 	public static function init_styles_scripts() {
-		//Register scripts
+		// Register scripts
 		wp_enqueue_script( 'jquery');
 		wp_enqueue_script( 'fancy_box', RAF_URL . 'js/fancybox/jquery.fancybox-1.3.4.pack.js', array( 'jquery' ), '1.3' );
 		wp_enqueue_script( 'raf_script', RAF_URL . 'js/raf_script.js', array( 'jquery', 'fancy_box' ), '1.0' );
 		
-		//Register styles
+		// Register styles
 		wp_enqueue_style( 'fancy_box_css', RAF_URL . 'js/fancybox/jquery.fancybox-1.3.4.css', '', '1.3.4' );
-        // specific RAF styles
-        if ( file_exists( get_stylesheet_directory()."/raf-styles.css" ) ) {
+		
+		// Specific RAF styles
+		if ( file_exists( get_stylesheet_directory() . "/raf-styles.css" ) ) {
 			wp_enqueue_style( 'raf-style', get_stylesheet_directory_uri() . '/raf-styles.css', array(), '1.0' );
 		}
-		elseif ( file_exists( get_template_directory()."/raf-styles.css" ) ) {
+		elseif ( file_exists( get_template_directory() . "/raf-styles.css" ) ) {
 			wp_enqueue_style( 'raf-style', get_template_directory_uri() . '/raf-styles.css', array(), '1.0' );
 		} else {
-            wp_enqueue_style( 'raf-style', RAF_URL . 'css/raf-styles.css', '', '1.0' );
-        }
+			wp_enqueue_style( 'raf-style', RAF_URL . 'css/raf-styles.css', '', '1.0' );
+		}
 	}
 	
 	/**
